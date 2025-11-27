@@ -9,7 +9,7 @@ import {
   MY_ORDERS_QUERY,
   OTHERS_BLOG_QUERY,
   PRODUCT_BY_SLUG_QUERY,
-  SINGLE_BLOG_QUERY,
+  
 } from "./query";
 
 const getCategories = async (quantity?: number) => {
@@ -107,18 +107,7 @@ const getAllBlogs = async (quantity: number) => {
   }
 };
 
-const getSingleBlog = async (slug: string) => {
-  try {
-    const { data } = await sanityFetch({
-      query: SINGLE_BLOG_QUERY,
-      params: { slug },
-    });
-    return data ?? [];
-  } catch (error) {
-    console.log("Error fetching all brands:", error);
-    return [];
-  }
-};
+
 const getBlogCategories = async () => {
   try {
     const { data } = await sanityFetch({
@@ -152,7 +141,7 @@ export {
   getBrand,
   getMyOrders,
   getAllBlogs,
-  getSingleBlog,
+  
   getBlogCategories,
   getOthersBlog,
 };
